@@ -72,6 +72,20 @@ _All numbers are measured, not estimated. Raw answers for every case are in `res
 - **Text:** training lines whose sign sequence matches a test line after removing layout marks, or whose transliteration is identical to a test line's, are removed (`dedupe_ft.py`; 161 removed).
 - **Text eval:** the 300 text eval lines were held out before training.
 
+## Overfitting and overlap checks
+
+- **Train/test split.**
+  - Photo test columns are HieroglyphBench's 30 crops. No training crop intersects them.
+  - The 300 text eval lines were held out before training. `data/test.jsonl` (300 lines) was never used.
+  - Training ran 1 epoch (photo rows twice), and the final training loss was 0.88.
+- **Text overlap we found after the run.**
+  - 15 of the 300 eval lines repeat a training line: same sign sequence or identical transliteration, mostly stock formulae. 5 of our 16 exact matches are on those lines.
+  - On the 285 clean lines: ours scores exact 3.9%, CER per line 42.0%, CER summed 82.6%. Kimi K3 scores 0.0% / 63.8% / 159.0%, and Qwen 3.8 Max 0.0% / 64.2% / 66.2%.
+  - The comparison's conclusions are unchanged. Headline numbers above use all 300 lines.
+- **Photo text overlap.**
+  - The test photos are unseen, but Pyramid Texts repeat formulae. On average 15% of the 5-sign runs in a test column also occur in some training crop (16 of 30 columns share at least one run).
+  - The photo score therefore measures unseen columns of the same monument and style, where context can help, not arbitrary inscriptions.
+
 ## Tradeoffs and limitations
 
 - **One photographic style.** Photo training and test both come from the Unas plates, as HieroglyphBench does. Expect lower accuracy on other monuments, papyri or lighting. A multi-style dataset (e.g. Thoth-Sphinx, CC BY-NC) is the next step.
