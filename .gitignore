@@ -1,0 +1,18 @@
+# secrets and environments
+.env
+.venv/
+**/.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# large or licence-restricted data: rebuilt by the scripts (see README)
+data/mix_train.jsonl
+data/train.jsonl
+data/ft_train*.jsonl
+vision/data/vlm_train.jsonl
+vision/data/vlm_bench.jsonl
+vision/data/crops/
+vision/raw/
+vision/models/
+data/mix_eval.jsonl

@@ -1,0 +1,7 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+train=2878 val=319 classes=156
+{'epoch': 1, 'train_loss': 4.987091665221553, 'sec': 5, 'val_top1': 0.08150470219435736, 'val_top3': 0.19435736677115986}
+{'epoch': 2, 'train_loss': 4.314999347266594, 'sec': 10, 'val_top1': 0.5579937304075235, 'val_top3': 0.7523510971786834}
+{'epoch': 3, 'train_loss': 2.7827577884202204, 'sec': 16, 'val_top1': 0.8213166144200627, 'val_top3': 0.8996865203761756}
+{'epoch': 4, 'train_loss': 1.7290742247364768, 'sec': 21, 'val_top1': 0.8526645768025078, 'val_top3': 0.9247648902821317}
+{'epoch': 5, 'train_loss': 1.32304080631105, 'sec': 26, 'val_top1': 0.8714733542319749, 'val_top3': 0.9278996865203761}

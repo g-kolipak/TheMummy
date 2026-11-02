@@ -1,0 +1,30 @@
+[
+  {
+    "system": "results/fireworks_kimi-k3_low.jsonl",
+    "image_cases": 30,
+    "image_missing": 0,
+    "sign_accuracy": 0.22448162948162947,
+    "text_cases": 300,
+    "text_missing": 0,
+    "text_cer": 1.5690637102285672,
+    "text_cer_line_capped_mean": 0.6364294547727735,
+    "text_exact": 0.0,
+    "errors": 0,
+    "median_latency_s": 2.8285,
+    "cost_per_1000_cases_usd": 5.904190909090908
+  },
+  {
+    "system": "results/fireworks_qwen3p8-max_low.jsonl",
+    "image_cases": 30,
+    "image_missing": 0,
+    "sign_accuracy": 0.2799304399304399,
+    "text_cases": 300,
+    "text_missing": 0,
+    "text_cer": 0.6613258409902043,
+    "text_cer_line_capped_mean": 0.6439974888027372,
+    "text_exact": 0.0,
+    "errors": 0,
+    "median_latency_s": 12.9085,
+    "cost_per_1000_cases_usd": 19.41161818181818
+  }
+]

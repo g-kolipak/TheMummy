@@ -1,0 +1,18 @@
+{
+  "arch": "resnet18",
+  "epochs": 1,
+  "img": 96,
+  "n_train": 2878,
+  "n_val": 319,
+  "n_classes": 156,
+  "note": "val is a random 10% of the leakage-filtered training crops (same plates), NOT the benchmark; it measures crop-level classification only",
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 4.5454527113982754,
+      "sec": 10,
+      "val_top1": 0.3793103448275862,
+      "val_top3": 0.5768025078369906
+    }
+  ]
+}
