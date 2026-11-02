@@ -71,6 +71,23 @@ _All numbers are measured, not estimated. Raw answers for every case are in `res
 - **No end-to-end ground truth.** No photo in the data comes with an aligned expert transliteration, so photo → transliteration is demonstrated, not scored.
 - **Serving.** The fine-tuned LoRA is not available on Fireworks serverless inference; production use needs an on-demand deployment (billed per GPU-hour). Our latency figures come from in-session sampling.
 
+## Repository layout
+
+| Path | What it is |
+|---|---|
+| `training/hiero_vision_starter.py` | Fine-tuning script (Fireworks Serverless Training API): mixed image + text LoRA SFT, in-session eval, per-sign confidence |
+| `make_mix.py` | Builds the single mixed training file and the 300-line text eval set |
+| `vision/make_vlm_data.py` | Cuts column photos from the plates (outside every test crop) with codes + boxes; builds the 30 HieroglyphBench eval rows |
+| `vision/prep_data.py`, `vision/hbcommon.py` | Rebuilds HieroglyphBench's column crops for leakage exclusion; HieroglyphBench scoring + Gardiner normalisation |
+| `dedupe_ft.py` | Stricter train/test dedupe for the text data |
+| `bench.py` | Text data prep (`prepare`) and the text scoring rules |
+| `frontier_baseline.py` | Claude baseline on the same 330 cases |
+| `fireworks_baseline.py` | Open-model baselines on Fireworks (and OpenAI with `--provider openai`) on the same 330 cases |
+| `compare.py` | One scorer for every system; writes `results/compare.json` |
+| `results/` | Raw baseline answers (every case) + `compare.json` |
+| `runs/` | Our run's metrics, predictions and summary |
+| `vision/classifier.py`, `vision/train.py` | Earlier experiment: a small local ResNet-18 single-sign classifier. Not used in the submitted system. |
+
 ## Reproduce
 
 ```bash

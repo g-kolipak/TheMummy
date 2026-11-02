@@ -1,3 +1,5 @@
 datasets
 openai
 anthropic
+pillow
+# Training additionally needs a checkout of github.com/fw-ai/cookbook (training/), see README.

@@ -1,4 +1,9 @@
 """
+Text side of the project: builds the codes -> transliteration splits from bbaw_egyptian and
+defines the scoring rules (clean_output, normalize, edit_distance) that compare.py uses for
+every system. The `run` / `report` commands below are the original single-task benchmark
+runner; the submitted comparison uses frontier_baseline.py / fireworks_baseline.py + compare.py.
+
 Hieroglyph reading benchmark: Gardiner sign codes -> Egyptological transliteration.
 
 Data: bbaw_egyptian (Thesaurus Linguae Aegyptiae excerpt, BBAW, CC BY-SA 4.0).
