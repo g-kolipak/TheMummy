@@ -44,6 +44,14 @@ _All numbers are measured, not estimated. Raw answers for every case are in `res
 - Prices are Fireworks' published standard per-token rates (input / output per 1M): Kimi K3 $3.00 / $15.00, Qwen 3.8 Max $2.00 / $6.00.
 - A closed frontier model (GPT / Claude) run is supported by `frontier_baseline.py` and `fireworks_baseline.py --provider openai`, but was not run because no key was available during the event.
 
+## What the model actually outputs
+
+These are real outputs on unseen HieroglyphBench test photos, drawn from the saved eval answers by `demo_overlay.py`: boxes, codes and per-sign confidence. Errors carry visibly lower confidence. In the best column, the two wrong signs sit at 0.72 and 0.88, while correct signs are mostly at 1.00.
+
+| Best column (92%) | Median column (68%) |
+|---|---|
+| ![best](docs/demo_unas-p20-c11-1.png) | ![median](docs/demo_unas-p5-c3-2.png) |
+
 ## How we evaluate success
 
 - **Photo → codes:** [HieroglyphBench](https://huggingface.co/datasets/jakeboggs/HieroglyphBench), 30 photographed columns from the Pyramid of Unas (545 signs). Metric is the benchmark's own **sign accuracy**: 1 − (Levenshtein distance over Gardiner codes / number of gold signs), floored at 0, averaged over columns. `vision/hbcommon.py` ports the benchmark's scoring and Gardiner normalisation.
