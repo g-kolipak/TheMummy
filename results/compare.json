@@ -26,5 +26,19 @@
     "errors": 0,
     "median_latency_s": 12.9085,
     "cost_per_1000_cases_usd": 19.41161818181818
+  },
+  {
+    "system": "runs/hiero-onemodel-20261102/predictions_tuned.jsonl",
+    "image_cases": 30,
+    "image_missing": 0,
+    "sign_accuracy": 0.6817502867502867,
+    "text_cases": 300,
+    "text_missing": 0,
+    "text_cer": 0.8141848280051637,
+    "text_cer_line_capped_mean": 0.4109433866631946,
+    "text_exact": 0.05333333333333334,
+    "errors": 0,
+    "median_latency_s": null,
+    "cost_per_1000_cases_usd": 0.6763551515151516
   }
 ]

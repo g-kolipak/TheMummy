@@ -22,9 +22,19 @@ Both systems are scored on **the same 330 held-out cases** with **the same scori
 |---|---|---|---|---|---|---|
 | Kimi K3 (Fireworks, reasoning effort low; text gets 5 solved examples) | 22.5% | 156.9% ¹ | 63.6% | 0.0% | 2.8 s | $5.90 |
 | Qwen 3.8 Max (Fireworks, reasoning effort low; text gets 5 solved examples) | 28.0% | 66.1% | 64.4% | 0.0% | 12.9 s | $19.41 |
-| **Ours: Muse Glimmer 30B + LoRA** (zero-shot) | _pending_ | _pending_ | _pending_ | _pending_ | _pending_ | _pending_ |
+| **Ours: Muse Glimmer 30B + LoRA** (zero-shot, no examples) | **68.2%** | 81.4% ² | **41.1%** | **5.3%** | n/a ³ | **$0.68** |
 
 _All numbers are measured, not estimated. Raw answers for every case are in `results/` (baselines) and `runs/` (ours). Scored by `compare.py`._
+
+**What improved against the baselines (measured):**
+- **Photo → codes:** 68.2% sign accuracy vs. 28.0% for the best baseline (Qwen 3.8 Max), 2.4× higher. Our predicted boxes overlap the expert boxes with a mean IoU of 0.45 on matched signs. Per-sign confidences came back for every case (`raw_logprobs_present: true`, top-5 alternatives included).
+- **Codes → transliteration:** exact match 5.3% vs. 0.0%, and per-line capped CER 41.1% vs. 63.6–64.4%. Our model has no examples in its prompt; the baselines get 5.
+- **Cost:** $0.68 per 1,000 cases vs. $5.90 (Kimi K3) and $19.41 (Qwen 3.8 Max), 9–29× cheaper.
+- **Where we are worse:** summed CER, 81.4% vs. Qwen's 66.1% (see ²).
+
+² **Our main failure:** 6 of the 300 text answers (2%) fell into repetition loops and ran to the 1,024-token cap. They account for 5,347 of our 10,722 character errors; on the other 294 lines our CER is 42.3%. We report the summed number with them included. A stop condition or repetition penalty at inference is the obvious fix, and was not applied to the submitted numbers.
+
+³ Our answers were sampled concurrently inside the Fireworks training session, so per-case latency was not recorded. Our cost uses the Serverless Training sampling rates we were billed ($1.96 / $4.88 per 1M prompt / sampled tokens) on the run's exact token totals (55,712 prompt, 23,361 sampled for all 330 cases). Serving the LoRA in production needs an on-demand deployment billed per GPU-hour, so production cost depends on volume.
 
 ¹ One Kimi K3 answer fell into a repetition loop (16,384 tokens of "ḥr ḥr …"), which accounts for 12,244 of its 20,663 character errors. The summed CER keeps it, as the metric is defined. The per-line capped column limits any single line to 100% error and is computed the same way for every system.
 

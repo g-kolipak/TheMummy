@@ -82,7 +82,7 @@ def score(path, img_gold, txt_gold):
     }
     tin = sum(r.get("input_tokens") or 0 for r in rows)
     tout = sum(r.get("output_tokens") or 0 for r in rows)
-    model = next((m for m in PRICES if m in Path(path).name), None)
+    model = next((m for m in PRICES if m in Path(path).as_posix()), None)
     if model and rows:
         pi, po = PRICES[model]
         out["cost_per_1000_cases_usd"] = (tin * pi + tout * po) / 1e6 / len(rows) * 1000

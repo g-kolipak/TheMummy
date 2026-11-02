@@ -1,0 +1,29 @@
+{
+  "steps": 177,
+  "base": null,
+  "tuned": {
+    "label": "tuned",
+    "exact_match": 0.048484848484848485,
+    "code_sequence_match": 0.9090909090909091,
+    "sign_accuracy": 0.48440366972477067,
+    "mean_iou_on_matched": 0.4461298537445695,
+    "pred_signs_per_gold_sign": 0.998165137614679,
+    "unterminated": 6,
+    "failed_rows": 0,
+    "prompt_tokens": 55712,
+    "sampled_tokens": 23361,
+    "raw_logprobs_present": true,
+    "topk_present": true
+  },
+  "promoted_model": "accounts/gururajkolipakula06/models/muse-starter-sl-hiero-onemodel-20261102",
+  "session": "ts-5b91ec046a8146979554e93e8c31b946",
+  "log": "hiero_vision_logs/hiero-onemodel-20261102",
+  "cost": {
+    "training": "$0 (promotional)",
+    "evaluation_sampling": {
+      "prompt_tokens": 55712,
+      "sampled_tokens": 23361,
+      "note": "billed separately from training at published per-token rates"
+    }
+  }
+}

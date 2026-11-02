@@ -1,0 +1,53 @@
+{
+  "account": "gururajkolipakula06",
+  "utc_now": "2026-11-02T22:57:54+00:00",
+  "promotion": {
+    "active": true,
+    "deadline": "2026-12-01T00:00:00-08:00",
+    "source": "https://docs.fireworks.ai/fine-tuning/models"
+  },
+  "base_model": "accounts/fireworks/models/muse-glimmer-30b",
+  "method": "LoRA SFT (image-to-text)",
+  "run_id": "hiero-onemodel-20261102",
+  "dataset": {
+    "train_file": "/Users/guru/Desktop/themummy/data/mix_train.jsonl",
+    "eval_file": "/Users/guru/Desktop/themummy/data/mix_eval.jsonl",
+    "train_rows": "all"
+  },
+  "evaluation": {
+    "base": "skipped",
+    "tuned": "greedy, per-token raw logprobs + top-5 alternatives",
+    "metrics": "exact match, code-sequence match, positional sign accuracy, mean IoU"
+  },
+  "parameters": {
+    "lora_rank": 16,
+    "epochs": 1,
+    "batch_size": 64,
+    "learning_rate": 0.0002,
+    "max_seq_len": 4096,
+    "max_eval_tokens": 1024,
+    "seed": 0,
+    "lora_alpha": 32,
+    "lora_targets": {
+      "train_mlp": true,
+      "train_attn": true,
+      "train_unembed": true
+    },
+    "train_on": "last_assistant_turn",
+    "loss": "cross_entropy",
+    "optimizer": {
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "grad_clip_norm": 1.0
+    }
+  },
+  "resources": {
+    "promoted_model": "accounts/gururajkolipakula06/models/muse-starter-sl-hiero-onemodel-20261102"
+  },
+  "cost": {
+    "training": "$0 (promotional)",
+    "evaluation_sampling": "billed separately per token"
+  }
+}
