@@ -96,6 +96,8 @@ These are real outputs on unseen HieroglyphBench test photos, drawn from the sav
 
 ## Tradeoffs and limitations
 
+- **Baselines stopped before completion.** Three more Fireworks models (DeepSeek V4.1 Flash, GLM 5.3 Flash, MiniMax M3.1 Flash) were started on the same 330 cases near the deadline. Most of their text requests hit rate limits (HTTP 429), so we stopped them and report no results for them.
+
 - **One photographic style.** Photo training and test both come from the Unas plates, as HieroglyphBench does. Expect lower accuracy on other monuments, papyri or lighting. A multi-style dataset (e.g. Thoth-Sphinx, CC BY-NC) is the next step.
 - **Small photo test set.** 30 columns / 545 signs; differences of a few points may not be significant.
 - **Rare signs.** About half of the 156 trained sign types have fewer than 5 examples, and 8 test signs belong to types never seen in training.
