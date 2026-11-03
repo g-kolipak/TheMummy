@@ -144,13 +144,9 @@ python frontier_baseline.py --model claude-opus-5-5 --effort medium
 python compare.py results/frontier_claude-opus-5-5_medium.jsonl runs/<run-id>/predictions_*.jsonl
 ```
 
-## Earlier experiment (same day)
-
-Before the combined model, we fine-tuned a text-only LoRA (rank 8, 5k lines). On 40 held-out lines the untuned base produced no answer (it spent its 2,048-token budget reasoning), while the tuned model answered every line: 10% exact, 35.5% CER. That run shaped the final setup: direct answers, more data, and both tasks in one model.
-
 ## Disclosures
 
-- **Built during the event:** all code in this repository (data builders, dedupe, the mixed image + text training script, the baseline and comparison scripts) and both trained LoRAs.
+- **Built during the event:** all code in this repository (data builders, dedupe, the mixed image + text training script, the baseline and comparison scripts) and the trained model.
 - **Third-party:**
   - `training/hiero_vision_starter.py` is derived from Fireworks' `fw-ai/cookbook` (Apache 2.0).
   - HieroglyphBench scoring is ported from JakeBoggs/HieroglyphBench.
