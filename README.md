@@ -10,6 +10,8 @@ photo ──▶ [same model, call 1] ──▶ O4 168 3 697 64 (0.97)   ──�
                                     M17 521 69 773 192 (0.99)
 ```
 
+**Project story page (signs explained for newcomers, training and test examples, results):** https://claude.ai/artifact/VP94vFgWLQGWUXQhZZwM1j
+
 ## Who benefits and why
 
 Museums, digitization projects and Egyptologists hold vast numbers of photographed but untranscribed inscriptions. Turning a photo into sign codes and a transliteration is slow expert work, and it is the bottleneck between "photo of a wall" and "translation". A small open model that does it cheaply and fast, with confidence scores that flag the signs a human should check, makes bulk digitization affordable. Students learning to read Egyptian benefit from it as a checking tool too.
